@@ -1,8 +1,8 @@
 # 1. World Visualization
-In this chapter, I'm gonna explain about a program to define a world coordinate as an environment where a vehicle can move. The program can display a x-y world coordinates and manage each objects which exist on the world.  
+In this chapter, I will explain a program to define a world coordinate as an environment where a vehicle can move. The program can display a x-y world coordinates and manage each objects which exist on the world.  
 
 ## 1.1 Visualization class
-All classes for world visualization is located at a directory, "src/components/visualization". Firstly, I'm gonna introduce a global x-y coordinate visualization class as follow.  
+All classes for world visualization is located in the directory, "src/components/visualization". Firstly, I will introduce a global x-y coordinate visualization class as follows.  
 [global_xy_visualizer.py](/src/components/visualization/global_xy_visualizer.py)  
 ```python
 """
@@ -40,10 +40,10 @@ class GlobalXYVisualizer:
         self.show_plot = True
         self.show_zoom = show_zoom
 ```
-This class need to import matplotlib.pyplot and animation to display data plots and an animation. In "__init__" method, an empty "objects" list is defined. Each objects which are located in the world are stored into this list.   
+This class needs to import matplotlib.pyplot and animation to display data plots and animation. In "__init__" method, an empty "objects" list is defined. Each objects which are located in the world are stored in this list.   
 
 ### 1.1.1 MinMax class
-"x_lim" and "y_lim" are objects of MinMax class. This class defines limitation  of x/y axis. These objects are used to set a size of world visualization. 
+"x_lim" and "y_lim" are objects of MinMax class. This class defines limitation  of x/y axis. These objects are used to set a size of the world visualization. 
 [min_max.py](/src/components/visualization/min_max.py)  
 ```python
 """
@@ -83,7 +83,7 @@ class MinMax:
 ```
 
 ### 1.1.2 TimeParameters class
-"time_params" is an object of TimeParameters class to manage the visualization time.  
+"time_params" is an object of TimeParameters class thats manages the visualization time.  
 [time_parameters.py](/src/components/visualization/time_parameters.py)
 ```python
 """
@@ -141,10 +141,10 @@ class TimeParameters:
 ```
 
 ### 1.1.3 Other member variables
-"gif_name" is a string object for saving the animation's gif file. A boolean, "show_plot" is used to switch displaying or not displaying the visualization's figure window when unit test is executed. While the test is running, the figure window should not be displayed to continue the test. "show_zoom" is deciding to limit the size of visualization area until around of the vehicle or the maximum size of world.  
+"gif_name" is a string object for saving the animation's gif file. A boolean variable, "show_plot" is used to switch displaying or not displaying the visualization's figure window when unit test is executed. While the test is running, the figure window should not be displayed to continue the test. "show_zoom" determines whether the size of the visualization area is limited to the area around the vehicle or to the maximum size of the world.  
 
 ### 1.1.4 Member methods
-A member method, "add_object()" is defined to add each objects which is located in the world. An object can be added to the objects list by calling this method.  
+A member method, "add_object()" is defined to add each object located in the world. An object can be added to the objects list by calling this method.  
 ```python
     def add_object(self, obj):
         """
@@ -155,7 +155,7 @@ A member method, "add_object()" is defined to add each objects which is located 
         self.objects.append(obj)
 ```
 
-A member method, "not_show_plot()" is defined not to display the figure window of the visualization. This method can be used when the unit test is executed.  
+A member method, "not_show_plot()" is defined prevent displaying the figure window of the visualization. This method can be used when the unit test is executed.  
 ```python
     def not_show_plot(self):
         """
@@ -194,7 +194,7 @@ This member method, "update" is used to update each objects's data and draw the 
             axes.set_ylim(self.y_lim.min_value(), self.y_lim.max_value())
 ```
 
-Finally, this "draw" method is defined to execute simulation including updating and visualization. If a specific name of gif file is set to "gif_name", the simulation's gif file will be created and saved instead of visualization.
+Finally, this "draw" method is defined to execute simulation including updating and visualization. If a specific name of GIF file is set to "gif_name", the simulation's GIF file will be created and saved instead of displaying the visualization.
 ```python
     def draw(self):
         """
@@ -231,7 +231,7 @@ Finally, this "draw" method is defined to execute simulation including updating 
 ```
 
 ## 1.2 Visualize empty world
-I prepared for [a sample progoram to visualize an empty world](/doc/1_world_visualization/visualize_world.py).  
+I prepared [a sample program to visualize an empty world](/doc/1_world_visualization/visualize_world.py).  
 ```python
 """
 visualize_world.py
@@ -283,5 +283,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-You will be able to understand how to use the above world visualization class by reading the code. By executing this, you can see that an empty world simulation is visualized as follow.  
+You will be able to understand how to use the above world visualization class by reading the code. By executing this, you can see that an empty world simulation is visualized as follows.  
 ![](/doc/1_world_visualization/visualize_world.gif)  
